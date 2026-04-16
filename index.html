@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz FOGÃO</title>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000, #1a1a1a); 
+ 
+    color: white;
+    animation: fundoAnimado 10s infinite alternate;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #111; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1:hover {
+    text-shadow: 0 0 15px white, 0 0 25px white;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+
+form {
+    text-align: left;
+    padding: 20px;
+}
+
+form input {
+    margin-right: 10px;
+}
+
+form br {
+    margin-bottom: 10px;
+}
+
+#resultado {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+
+.resultado-verde {
+    background-color: green;
+    color: rgb(0, 0, 0);
+}
+
+.resultado-preto {
+    background-color: rgb(29, 21, 21);
+    color: white;
+    border: 2px solid white;
+}
+
+.resultado-yellow {
+    background-color:yellow;
+    color: black;
+}
+
+.resultado-orange {
+    background-color: orange;
+    color: black;
+}
+
+.resultado-vermelho {
+    background-color: red;
+    color: white;
+}
+
+
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QUIZ DO FOGÃO</h1>
+
+    </div>
+        <form>
+            1) Quem é o maior artilheiro da historia do botafogo? <br>
+            <input type="radio" name="p1" value="0"> Túlio maravilha <br>
+            <input type="radio" name="p1" value="1"> Quarentinha <br>
+            <input type="radio" name="p1" value="0"> Dodô <br>
+            <input type="radio" name="p1" value="0"> Garrincha <br>
+            <br>
+            2) Quem foi o autor do primeiro gol da final da libertadores contra o Atletico Mineiro? <br>
+            <input type="radio" name="p2" value="1"> Luiz Henrique <br>
+            <input type="radio" name="p2" value="0"> Igor Jesus <br>
+            <input type="radio" name="p2" value="0"> Alex Telles <br>
+            <input type="radio" name="p2" value="0"> Savarino<br>
+            <br>
+            3) Quantos titulos brasileiros o botafogo conquistou? <br>
+            <input type="radio" name="p3" value="0"> 1 <br>
+            <input type="radio" name="p3" value="1"> 3 <br>
+            <input type="radio" name="p3" value="0"> 4 <br>
+            <input type="radio" name="p3" value="0"> 2 <br>
+            <br>
+            4) Quem é o atual camisa 10 do Botafogo? <br>
+            <input type="radio" name="p4" value="0"> Marlon Freitas<br>
+            <input type="radio" name="p4" value="0"> Gregore <br>
+            <input type="radio" name="p4" value="1"> Savarino <br>
+            <input type="radio" name="p4" value="0"> Igor Jesus <br>
+            <br>
+            5) Quem foi o artilheiro do botafogo no Titulo Brasileiro de 1995?<br>
+            <input type="radio" name="p5" value="0"> Donizete <br>
+            <input type="radio" name="p5" value="0"> Gottardo <br>
+            <input type="radio" name="p5" value="0"> Wagner <br>
+            <input type="radio" name="p5" value="1"> Túlio Maravilha <br>
+            <br>
+            6) A data de fundação do botafogo é dia 12 de setembro de 1904?<br>
+            <input type="radio" name="p6" value="1"> Falso <br>
+            <input type="radio" name="p6" value="0"> Verdadeiro <br>
+            <br>
+            7) Quem é o unico angolano da historia do botafogo?<br> 
+            <input type="radio" name="p7" value="1"> Bastos <br>
+            <input type="radio" name="p7" value="0"> Luis Castro <br>
+            <input type="radio" name="p7" value="0"> Eber Bessa <br>
+            <input type="radio" name="p7" value="0"> Igor Jesus <br>
+<br>
+            <button type="button" onclick="resultQuiz(p1.value,p2.value,p3.value,p4.value,p5.value,p6.value,p7.value)">Calcular Resultado</button>
+            
+            </form>
+            <h2 id="resultado"></h2>
+            <script>
+                function resultQuiz(p1,p2,p3,p4,p5,p6,p7){
+                 
+                    p1 = Number(p1);
+                    p2 = Number(p2);
+                    p3 = Number(p3);
+                    p4 = Number(p4);
+                    p5 = Number(p5);
+                    p6 = Number(p6);
+                    p7 = Number(p7);
+            
+                    resultado = p1+p2+p3+p4+p5+p6+p7
+                    
+                    h2 = document.getElementById("resultado")
+                    if(resultado>=7){
+                     h2.innerHTML = "Quantidade de acertos: "+resultado+". BOTAFOGUENSE RAIZ!!!! SAUDAÇÕES ALVINEGRAS."
+            h2.style.backgroundColor="black"
+                    }else if(resultado>=6){
+                        h2.innerHTML = "Acertos: "+resultado+". MUITO BOM TORCEDOR! QUASE PERFEITO. SAUDAÇÕES!"
+            h2.style.backgroundColor="green"
+                    }else if(resultado>=5){
+                        h2.innerHTML = "Acertos: "+resultado+". BOM MAS DÁ PRA MELHORAR TORCEDOR. SAUDAÇÕES!"
+                        h2.style.backgroundColor="yellow"
+                    }else if(resultado>=4){
+                        h2.innerHTML = "Acertos: "+resultado+". Tá ok, mas tem que conhecer mais!"
+                        h2.style.backgroundColor="orange"
+                    }else{ 
+                        h2.innerHTML = "Acertos: "+resultado+". Ou você é rival ou você é modinha. Precisa melhorar urgente!!!!!"
+                        h2.style.backgroundColor="red"
+                    }            
+
+                    }
+</script>
+
+</body>
+</html>
+
+
